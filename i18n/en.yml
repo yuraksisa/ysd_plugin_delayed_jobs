@@ -1,0 +1,23 @@
+system_admin_menu:
+  delayed_jobs: Background tasks
+delayed_jobs_management:
+  title: Background tasks
+  description: >
+               <p>Background tasks monitor.</p>
+  table:
+    id: Id
+    priority: Priority
+    attempts: Attempts
+    run_at: Run at
+    locked_at: Locked at
+    failed_at: Failed at  
+  form:
+    id: Id
+    priority: Priority
+    attempts: Attempts
+    handler: Handler
+    run_at: Run at
+    locked_at: Locked at
+    locked_by: Locked by
+    failed_at: Failed at
+    last_error: Last error

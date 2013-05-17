@@ -1,0 +1,182 @@
+<%= include('entity-management') %>
+
+<!-- Renders the element description -->
+<script type="text/tmpl" id="elements_title">
+  <h2 class="entity-title"><%=t.delayed_jobs_management.title%></h2>
+</script>
+
+<!-- Renders the element description -->
+<script type="text/tmpl" id="elements_description">
+ <%=t.delayed_jobs_management.description%>
+</script>
+
+<!-- Renders the elements container -->
+<script type="text/tmpl" id="elements_container_template">
+
+  <table id="elements_table" class="table">
+     <thead class="table-header">
+       <tr>
+         <th class="table-header-title tht-be" scope="col" style="width:20%">
+           <%=t.delayed_jobs_management.table.id%>
+         </th>
+         <th class="table-header-title tht-be" scope="col" style="width:10%">
+           <%=t.delayed_jobs_management.table.priority%>
+         </th>
+         <th class="table-header-title tht-be" scope="col" style="width:10%">
+           <%=t.delayed_jobs_management.table.attempts%>
+         </th>
+         <th class="table-header-title tht-be" scope="col" style="width:20%">
+           <%=t.delayed_jobs_management.table.run_at%>
+         </th>
+         <th class="table-header-title tht-be" scope="col" style="width:20%">
+           <%=t.delayed_jobs_management.table.locked_at%>
+         </th>
+         <th class="table-header-title tht-be" scope="col" style="width:20%">
+           <%=t.delayed_jobs_management.table.failed_at%>
+         </th>
+       </tr>
+     </thead>
+     <tbody id="elements_tbody" class="table-tbody">             
+     </tbody>
+  </table>
+
+</script>
+
+<!-- Renders one element in the elements list view -->
+        
+<script type="text/tmpl" id="elements_list_template">
+
+    <tr class="table-row element-navigation-detail" rel="<%%= index %>" id="element_row_<%%=index%>">
+      <td class="table-cell tc-be">
+        <%%= entity.id %>
+      </td>
+      <td class="table-cell tc-be">
+        <%%= entity.priority %>
+      </td>
+      <td class="table-cell tc-be">
+        <%%= entity.attempts %>
+      </td>
+      <td class="table-cell tc-be">
+        <%%= self.model.entityHooks[0].formatDateTime(entity.run_at) %>
+      </td>
+      <td class="table-cell tc-be">
+        <%%= self.model.entityHooks[0].formatDateTime(entity.locked_at) %>
+      </td>
+      <td class="table-cell tc-be">
+        <%%= self.model.entityHooks[0].formatDateTime(entity.failed_at) %>
+      </td>
+    </tr>
+
+</script>
+
+<!-- Renders one element in the element view (full detailed) -->
+
+<script type="text/tmpl" id="element_template">
+     
+</script>
+
+<!-- Renders the form to edit an element -->
+
+<script type="text/tmpl" id="element_template_form">
+
+     <div class="element_template" style="overflow:hidden">
+       <div class="entity-field">
+         <span class="entity-fieldlabel">
+           <%=t.delayed_jobs_management.form.id%>
+         </span> 
+         <span class="entity-fieldvalue"><%%= entity.id %></span> 
+       </div>
+     </div>
+     <div class="element_template" style="overflow:hidden">
+       <div class="entity-field">
+         <span class="entity-fieldlabel">
+           <%=t.delayed_jobs_management.form.priority%>
+         </span> 
+         <span class="entity-fieldvalue"><%%= entity.priority %></span> 
+       </div>
+     </div>
+     <div class="element_template" style="overflow:hidden">
+       <div class="entity-field">
+         <span class="entity-fieldlabel">
+           <%=t.delayed_jobs_management.form.attempts%>
+         </span> 
+         <span class="entity-fieldvalue"><%%= entity.attempts %></span> 
+       </div>
+     </div>
+     <div class="element_template" style="overflow:hidden">
+       <div class="entity-field">
+         <span class="entity-fieldlabel">
+           <%=t.delayed_jobs_management.form.handler%>
+         </span> 
+         <span class="entity-fieldvalue"><%%= entity.handler %></span> 
+       </div>
+     </div>
+     <div class="element_template" style="overflow:hidden">
+       <div class="entity-field">
+         <span class="entity-fieldlabel">
+           <%=t.delayed_jobs_management.form.run_at%>
+         </span> 
+         <span class="entity-fieldvalue"><%%= entity.run_at %></span> 
+       </div>
+     </div>
+     <div class="element_template" style="overflow:hidden">
+       <div class="entity-field">
+         <span class="entity-fieldlabel">
+           <%=t.delayed_jobs_management.form.locked_at%>
+         </span> 
+         <span class="entity-fieldvalue"><%%= entity.locked_at %></span> 
+       </div>
+     </div>
+     <div class="element_template" style="overflow:hidden">
+       <div class="entity-field">
+         <span class="entity-fieldlabel">
+           <%=t.delayed_jobs_management.form.locked_by%>
+         </span> 
+         <span class="entity-fieldvalue"><%%= entity.locked_by %></span> 
+       </div>
+     </div>
+     <div class="element_template" style="overflow:hidden">
+       <div class="entity-field">
+         <span class="entity-fieldlabel">
+           <%=t.delayed_jobs_management.form.failed_at%>
+         </span> 
+         <span class="entity-fieldvalue"><%%= entity.failed_at %></span> 
+       </div>
+     </div>     
+     <div class="element_template" style="overflow:hidden">
+       <div class="entity-field">
+         <span class="entity-fieldlabel">
+           <%=t.delayed_jobs_management.form.last_error%>
+         </span> 
+         <span class="entity-fieldvalue"><%%= entity.last_error %></span> 
+       </div>
+     </div>     
+</script>
+
+
+<script type="text/javascript">
+
+require(['YSDEntityManagement', 'jquery', 'ysdtemplate'], function(EntityManagement, $, tmpl) {
+ 
+  function DelayedJobHook() {
+ 	   
+    this.onRenderEntities = function(entities) {
+    
+      $('.new-entity-button').hide();
+      $('.edit-entity-button').hide();
+      	
+    }
+  	  	
+  };
+  
+  var urls = {
+               query_url  : '/worker-jobs'
+             };
+             
+  var delayedJobHook = new DelayedJobHook();
+  var delayedJobManager = new EntityManagement(urls, 'Delayed jobs',
+     <%= delayed_jobs_page_size %>, delayedJobHook, {prefix: '/admin'});
+  
+});  
+
+</script>

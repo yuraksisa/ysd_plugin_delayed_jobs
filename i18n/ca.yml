@@ -1,0 +1,23 @@
+system_admin_menu:
+  delayed_jobs: Tasques en segon plà 
+delayed_jobs_management:
+  title: Tasques en segon plà
+  description: >
+               <p>Monitoritza les tasques que s\'executen en segon plà.</p>
+  table:
+    id: Id
+    priority: prioritat
+    attempts: reintents
+    run_at: executat
+    locked_at: bloquejat
+    failed_at: error   
+  form:
+    id: Id
+    priority: Prioritat
+    attempts: Reintents
+    handler: Descripció procès
+    run_at: Execució
+    locked_at: Bloquejat 
+    locked_by: Bloquejat per
+    failed_at: Error
+    last_error: Últim error

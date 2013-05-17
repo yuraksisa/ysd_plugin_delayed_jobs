@@ -1,0 +1,23 @@
+system_admin_menu:
+  delayed_jobs: Tareas en segundo plano
+delayed_jobs_management:
+  title: Tareas en segundo plano
+  description: >
+               <p>Monitoriza las tareas que se ejecutan en segundo plano.</p>
+  table:
+    id: Id
+    priority: Prioridad
+    attempts: Reintentos
+    run_at: Ejecutado
+    locked_at: Bloqueado
+    failed_at: Error  
+  form:
+    id: Id
+    priority: Prioridad
+    attempts: Reintentos
+    handler: Descripción proceso
+    run_at: Ejecutado
+    locked_at: Bloqueado
+    locked_by: Bloqueado por
+    failed_at: Error
+    last_error: Último error
