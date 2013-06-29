@@ -57,13 +57,13 @@
         <%%= entity.attempts %>
       </td>
       <td class="table-cell tc-be">
-        <%%= self.model.entityHooks[0].formatDateTime(entity.run_at) %>
+        <%%= self.formatDate(entity.run_at) %>
       </td>
       <td class="table-cell tc-be">
-        <%%= self.model.entityHooks[0].formatDateTime(entity.locked_at) %>
+        <%%= self.formatDate(entity.locked_at) %>
       </td>
       <td class="table-cell tc-be">
-        <%%= self.model.entityHooks[0].formatDateTime(entity.failed_at) %>
+        <%%= self.formatDate(entity.failed_at) %>
       </td>
     </tr>
 
