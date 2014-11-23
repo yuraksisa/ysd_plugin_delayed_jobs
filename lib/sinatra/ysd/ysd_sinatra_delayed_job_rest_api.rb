@@ -9,7 +9,7 @@ module Sinatra
 
       def self.registered(app)
    
-        ['/worker-jobs','/worker-jobs/page/:page'].each do |path|
+        ['/api/worker-jobs','/api/worker-jobs/page/:page'].each do |path|
           app.post path, :allowed_usergroups => ['staff'] do
             
             query_options = {}

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name    = "ysd_plugin_delayed_jobs"
-  s.version = "0.1.1"
+  s.version = "0.1.2"
   s.authors = ["Yurak Sisa Dream"]
   s.date    = "2013-05-17"
   s.email   = ["yurak.sisa.dream@gmail.com"]
