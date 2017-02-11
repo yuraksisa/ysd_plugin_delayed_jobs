@@ -14,19 +14,15 @@ module Sinatra
             
             query_options = {}
             
-            if request.media_type == "application/x-www-form-urlencoded"
-              if params[:search]
-                query_options[:conditions] = {:id => params[:search]} 
-              else
-                request.body.rewind
-                search_text=request.body.read
-                query_options[:conditions] = {:id =>search_text} 
-              end
+            if request.media_type == "application/json"
+              request.body.rewind
+              search_request = JSON.parse(URI.unescape(request.body.read))
+              if search_request.has_key?('search')
+                query_options[:conditions] = {:id => search_request['search']}
+              end               
             end
 
-            page_size = SystemConfiguration::Variable.
-              get_value('delayed_jobs.page_size', 20).to_i 
-  
+            page_size = 20
             page = [params[:page].to_i, 1].max  
 
             data, total = Delayed::Backend::DataMapper::Job.all_and_count(
