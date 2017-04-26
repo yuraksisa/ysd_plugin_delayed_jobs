@@ -17,7 +17,7 @@ module Sinatra
             if request.media_type == "application/json"
               request.body.rewind
               search_request = JSON.parse(URI.unescape(request.body.read))
-              if search_request.has_key?('search')
+              if search_request.has_key?('search') && !search_request['search'].empty?
                 query_options[:conditions] = {:id => search_request['search']}
               end               
             end
