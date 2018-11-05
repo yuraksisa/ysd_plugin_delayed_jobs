@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name    = "ysd_plugin_delayed_jobs"
-  s.version = "0.1.4"
+  s.version = "0.1.5"
   s.authors = ["Yurak Sisa Dream"]
   s.date    = "2013-05-17"
   s.email   = ["yurak.sisa.dream@gmail.com"]
@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency "ysd_core_plugins"
   s.add_runtime_dependency "ysd_yito_core"
-  s.add_runtime_dependency "ysd_yito_js"
   
   s.add_runtime_dependency "ysd_md_configuration" 
   s.add_runtime_dependency "ysd_plugin_auth"
